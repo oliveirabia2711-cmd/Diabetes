@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes+ • Cuidado com a Saúde</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        body { font-family: 'Inter', system-ui, sans-serif; }
+        .app-container { max-width: 390px; margin: 0 auto; background: white; min-height: 100vh; box-shadow: 0 0 20px rgba(0,0,0,0.1); overflow: hidden; }
+        .header { background: linear-gradient(135deg, #1e40af, #3b82f6); }
+        .hero-bg { background: linear-gradient(180deg, #f0f9ff 0%, #e0f2fe 100%); }
+        .section { display: none; }
+        .section.active { display: block; }
+    </style>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen p-4">
+    <div class="app-container rounded-3xl overflow-hidden flex flex-col">
+        <!-- Status Bar -->
+        <div class="bg-white px-4 py-1 flex items-center justify-between text-xs text-gray-600 border-b">
+            <span>10:18</span>
+            <div class="flex items-center gap-3">
+                <i class="fa-solid fa-signal"></i>
+                <i class="fa-solid fa-wifi"></i>
+                <span>87%</span>
+            </div>
+        </div>
+
+        <!-- Header -->
+        <div class="header px-4 py-3 flex items-center justify-between text-white">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-white rounded-2xl flex items-center justify-center text-3xl shadow-inner">🩸</div>
+                <h1 class="text-2xl font-bold">Diabetes+</h1>
+            </div>
+            <button onclick="toggleMenu()" class="text-white"><i class="fa-solid fa-bars text-2xl"></i></button>
+        </div>
+
+        <!-- Main Content -->
+        <div class="flex-1 overflow-y-auto hero-bg pb-20" id="main-content">
+            
+            <!-- Tela Inicial -->
+            <div id="home" class="section active px-6 pt-6">
+                <div class="bg-white/80 backdrop-blur-md rounded-3xl px-5 py-3 flex items-center gap-2 shadow-sm mb-8">
+                    <span class="text-2xl">⭐</span>
+                    <p class="font-medium text-blue-900">Informação é a melhor prevenção</p>
+                </div>
+
+                <h2 class="text-4xl font-bold leading-tight text-gray-900 mb-3">
+                    Cuidar da <span class="text-blue-600">diabetes</span> é direito de todos
+                </h2>
+
+                <p class="text-gray-600 text-[17px] leading-relaxed mb-10">
+                    Conheça os tipos, tratamentos, prevenção e viva melhor com informação confiável.
+                </p>
+
+                <button onclick="showSection('explore')" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-6 rounded-3xl text-lg flex items-center justify-center gap-2 mb-4 shadow-lg">
+                    Explorar sobre Diabetes <span class="text-xl">→</span>
+                </button>
+
+                <button onclick="showSection('quiz')" class="w-full border-2 border-blue-200 hover:border-blue-300 font-semibold py-4 px-6 rounded-3xl text-lg flex items-center justify-center">
+                    Fazer o Quiz
+                </button>
+
+                <div class="mt-12 flex justify-center">
+                    <div class="w-52 h-52 bg-gradient-to-br from-blue-100 to-cyan-100 rounded-full flex items-center justify-center text-[120px] shadow-inner">🩸</div>
+                </div>
+            </div>
+
+            <!-- Tela Explorar - Mais Completa -->
+            <div id="explore" class="section px-6 pt-6 pb-10">
+                <button onclick="showSection('home')" class="flex items-center gap-2 text-blue-600 mb-6 text-lg font-medium">← Voltar</button>
+                <h2 class="text-3xl font-bold mb-6 text-gray-900">Sobre a Diabetes</h2>
+                
+                <div class="space-y-8">
+                    <!-- Tipos -->
+                    <div class="bg-white rounded-3xl p-6 shadow-sm">
+                        <h3 class="font-semibold text-xl mb-4 flex items-center gap-2"><i class="fa-solid fa-layer-group text-blue-600"></i> Tipos de Diabetes</h3>
+                        <div class="space-y-4 text-sm">
+                            <div><strong>Tipo 1</strong> (5-10%): Doença autoimune. O pâncreas não produz insulina. Geralmente surge na infância ou adolescência. Necessita insulina todos os dias.</div>
+                            <div><strong>Tipo 2</strong> (90-95%): O corpo não usa bem a insulina ou não produz o suficiente. Fortemente ligado a obesidade, sedentarismo e genética.</div>
+                            <div><strong>Gestacional</strong>: Aparece durante a gravidez. Geralmente some após o parto, mas aumenta o risco futuro de Tipo 2.</div>
+                        </div>
+                    </div>
+
+                    <!-- Tratamento e Cura -->
+                    <div class="bg-white rounded-3xl p-6 shadow-sm">
+                        <h3 class="font-semibold text-xl mb-4 flex items-center gap-2"><i class="fa-solid fa-pills text-blue-600"></i> Tratamento e Cura</h3>
+                        <p class="mb-3"><strong>Não existe cura definitiva</strong> para os tipos 1 e 2.</p>
+                        <p class="mb-4">É possível controlar muito bem e, em alguns casos de Tipo 2, alcançar <strong>remissão</strong> (glicemia normal sem medicação).</p>
+                        <ul class="list-disc pl-5 space-y-2 text-sm">
+                            <li>Alimentação equilibrada (controle de carboidratos)</li>
+                            <li>Atividade física regular (mínimo 150 min/semana)</li>
+                            <li>Medicação oral ou insulina</li>
+                            <li>Monitoramento diário da glicemia</li>
+                            <li>Em casos graves: cirurgia bariátrica</li>
+                        </ul>
+                    </div>
+
+                    <!-- Prevenção e Dicas -->
+                    <div class="bg-white rounded-3xl p-6 shadow-sm">
+                        <h3 class="font-semibold text-xl mb-4 flex items-center gap-2"><i class="fa-solid fa-heart text-blue-600"></i> Prevenção e Dicas</h3>
+                        <ul class="space-y-3 text-sm">
+                            <li><strong>Prevenção Tipo 2:</strong> Manter peso saudável, praticar exercícios, comer mais vegetais e fibras.</li>
+                            <li><strong>Sintomas comuns:</strong> Sede excessiva, urinar muito, fome constante, cansaço, visão embaçada.</li>
+                            <li><strong>Complicações se não controlada:</strong> Problemas no coração, rins, olhos, pés e nervos.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quiz Mais Completo -->
+            <div id="quiz" class="section px-6 pt-6 pb-10">
+                <button onclick="showSection('home')" class="flex items-center gap-2 text-blue-600 mb-6 text-lg font-medium">← Voltar</button>
+                <h2 class="text-3xl font-bold mb-2">Quiz sobre Diabetes</h2>
+                <p class="text-gray-500 mb-6">Teste seus conhecimentos!</p>
+                <div id="quiz-container" class="bg-white rounded-3xl p-6 shadow-sm min-h-[400px]"></div>
+            </div>
+        </div>
+
+        <!-- Bottom Navigation -->
+        <div class="bg-white border-t fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[390px]">
+            <div class="flex justify-around py-2 text-xs">
+                <a onclick="showSection('home')" class="flex flex-col items-center text-blue-600 cursor-pointer"><i class="fa-solid fa-house text-2xl"></i><span>Início</span></a>
+                <a onclick="showSection('explore')" class="flex flex-col items-center text-gray-500 cursor-pointer"><i class="fa-solid fa-book-medical text-2xl"></i><span>Diabetes</span></a>
+                <a onclick="showSection('quiz')" class="flex flex-col items-center text-gray-500 cursor-pointer"><i class="fa-solid fa-question-circle text-2xl"></i><span>Quiz</span></a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentQuestion = 0;
+        let score = 0;
+
+        const questions = [
+            { q: "Qual é o tipo mais comum de diabetes?", a: ["Tipo 1", "Tipo 2", "Gestacional"], correct: 1 },
+            { q: "A diabetes tem cura definitiva?", a: ["Sim", "Não", "Só o Tipo 2"], correct: 1 },
+            { q: "Qual é uma das melhores formas de prevenir o Tipo 2?", a: ["Exercícios e boa alimentação", "Beber refrigerante", "Dormir pouco"], correct: 0 },
+            { q: "O que falta no corpo na diabetes Tipo 1?", a: ["Insulina", "Vitamina D", "Hemoglobina"], correct: 0 },
+            { q: "Qual é um sintoma comum da diabetes?", a: ["Sede excessiva", "Dor de cabeça", "Tontura"], correct: 0 }
+        ];
+
+        function showSection(section) {
+            document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+            document.getElementById(section).classList.add('active');
+            if (section === 'quiz') startQuiz();
+        }
+
+        function startQuiz() {
+            currentQuestion = 0;
+            score = 0;
+            renderQuestion();
+        }
+
+        function renderQuestion() {
+            const q = questions[currentQuestion];
+            let html = `
+                <div class="mb-6">
+                    <div class="text-blue-600 font-medium">Pergunta ${currentQuestion + 1} de ${questions.length}</div>
+                    <h3 class="font-semibold text-lg mt-3">${q.q}</h3>
+                </div>
+                <div class="space-y-3">
+            `;
+            q.a.forEach((answer, i) => {
+                html += `
+                    <button onclick="answerQuestion(${i})" class="w-full text-left px-5 py-4 border border-gray-200 rounded-2xl hover:border-blue-500 transition-all">
+                        ${answer}
+                    </button>
+                `;
+            });
+            html += `</div>`;
+            document.getElementById('quiz-container').innerHTML = html;
+        }
+
+        function answerQuestion(selected) {
+            if (selected === questions[currentQuestion].correct) score++;
+            currentQuestion++;
+            if (currentQuestion < questions.length) {
+                renderQuestion();
+            } else {
+                showResult();
+            }
+        }
+
+        function showResult() {
+            const percentage = Math.round((score / questions.length) * 100);
+            document.getElementById('quiz-container').innerHTML = `
+                <div class="text-center py-12">
+                    <div class="text-6xl mb-4">${percentage >= 80 ? '🎉' : percentage >= 60 ? '👍' : '💪'}</div>
+                    <h3 class="text-2xl font-bold">Você acertou ${score} de ${questions.length}!</h3>
+                    <p class="text-xl mt-2 mb-8">${percentage}% de acerto</p>
+                    <button onclick="startQuiz()" class="w-full bg-blue-600 text-white py-4 rounded-3xl font-semibold">Refazer o Quiz</button>
+                    <button onclick="showSection('home')" class="w-full mt-3 border border-gray-300 py-4 rounded-3xl font-semibold">Voltar ao Início</button>
+                </div>
+            `;
+        }
+
+        function toggleMenu() {
+            alert("📱 Menu do Diabetes+:\n\n• Meu Perfil\n• Histórico de Glicemia\n• Configurações\n• Sobre o App");
+        }
+    </script>
+</body>
+</html>
